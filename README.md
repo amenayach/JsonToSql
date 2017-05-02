@@ -4,7 +4,7 @@ A simple class library, that provide Insert, Update and Delete functionalities t
 
 ## Example:
 ```cs
-var connectioString = "Data Source=.;Initial Catalog=DB1;Integrated Security=True";
+            var connectioString = "Data Source=.;Initial Catalog=DB1;Integrated Security=True";
 
             var jsonToSql = new ObjectModel.JsonToSql(connectioString);
 
