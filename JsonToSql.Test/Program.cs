@@ -49,7 +49,11 @@ namespace JsonToSql.Test
                 id = 1,
                 username = "user1",
                 password = "password"
-            }), CommandType.Update);
+            }), CommandType.Update)
+            .Save("T1", JObject.FromObject(new
+            {
+                id = 3
+            }), CommandType.Delete);
 
             jsonToSql.SaveChanges();
 
