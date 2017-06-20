@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace JsonToSql.ObjectModel
 {
-    public class JsonToSql
+    public class JsonToSql : IDisposable
     {
 
         /// <summary>
@@ -110,5 +110,19 @@ namespace JsonToSql.ObjectModel
 
         }
 
+        public void Dispose()
+        {
+            if (_connection != null)
+            {
+                if (_connection.State != ConnectionState.Closed)
+                {
+                    _connection.Close();
+                }
+                _connection.Dispose();
+            }
+
+            commands.Clear();
+            commands = null;
+        }
     }
 }
